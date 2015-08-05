@@ -14,4 +14,4 @@ You can start the MariaDB daemon with:
 
 to see the database:
 
-mysql -u root -p
+mysql -u root -p 
