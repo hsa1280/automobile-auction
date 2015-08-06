@@ -1,4 +1,5 @@
 import bean.UserDetails;
+import bean.Vehicle;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -11,6 +12,9 @@ public class HibernateTest {
         UserDetails user = new UserDetails();
         user.setUserName("Third User");
 
+        Vehicle vehicle = new Vehicle();
+        vehicle.setVin("HUANG123456");
+
         Configuration configuration = new Configuration().configure();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
         SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
@@ -18,6 +22,7 @@ public class HibernateTest {
 
         session.beginTransaction();
         session.save(user);
+        session.save(vehicle);
         session.getTransaction().commit();
 
         session.close();
